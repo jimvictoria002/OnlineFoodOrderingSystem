@@ -136,9 +136,20 @@ class AdminController extends Controller
 
     public function storecategory(Request $request)
     {
+        $request->validate([
+            'category' => 'required'
+        ]);
         Category::create([
             "category_name" => $request->category
         ]);
         return back()->with("success","Category added");
+    }
+
+    public function deletecategory(Request $request, $category_id)
+    {
+        $category = Category::find($category_id);
+        $category->destroy($category_id);
+        Product::where("category", $category->category_name)->delete();
+        return redirect("/admin/home");
     }
 }

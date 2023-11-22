@@ -84,6 +84,20 @@ categoryClose.addEventListener('click', ()=>{
   categoryContainer.style.bottom = '100%';
 });
 
+let deleteCategoryOpen = document.getElementById('deleteCategory-toggle-open');
+let deleteCategoryClose = document.getElementById('delete-category-toggle-close');
+let deleteCategoryContainer = document.getElementById('deleteCategory');
+
+
+deleteCategoryOpen.addEventListener('click', ()=>{
+  deleteCategoryContainer.style.bottom = 0;
+});
+
+deleteCategoryClose.addEventListener('click', ()=>{
+  deleteCategoryContainer.style.bottom = '100%';
+});
+
+
 
 let profileToggle = document.getElementById('profile-toggle');
 let profileDropdown = document.getElementById('profileDropdown');
@@ -95,3 +109,6 @@ profileToggle.addEventListener('click', ()=>{
     profileDropdown.style.display = "flex";
   }
 });
+
+
+

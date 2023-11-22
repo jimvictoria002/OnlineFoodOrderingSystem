@@ -45,6 +45,8 @@
             @endforeach
         </div>
         <a class="add-product" id="category-toggle-open">add <i class="fa-solid fa-plus"></i></a>
+        <a class="add-product" id="deleteCategory-toggle-open" style="margin-top: 1rem; background-color:red; color: white;"
+        >del <i class="fa-solid fa-minus"></i></a>
     </div>
 </div>
 
@@ -56,6 +58,25 @@
         <input type="text" name="category" placeholder="Enter food category">
         <input type="submit" value="Done" class="add-product">
     </form>
+</div>
+
+
+<div class="add-category" id="deleteCategory">
+    <div class="delete-category-container">
+        <span>
+            <i class="fa-solid fa-x" id="delete-category-toggle-close"></i>
+        </span>
+        @foreach($categories as $category)
+            <div class="delete-container">
+                <p>{{$category->category_name}}</p>
+                <form action="/admin/{{$category->id}}/delete" method="post">
+                    @method('delete')
+                    @csrf
+                    <input type="submit" value="Delete" class="delete-category-btn">
+                </form>
+            </div>
+        @endforeach
+    </div>
 </div>
 
 

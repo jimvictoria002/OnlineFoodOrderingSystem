@@ -595,6 +595,7 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 14;
 }
 
+
 .add-category form span{
     position: absolute;
     top: 0;
@@ -615,7 +616,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: larger;
 }
 
-.add-category form input[type="submit"]{
+.add-category .add-product{
     width: 150px;
     outline: none;
     border: none;
@@ -664,6 +665,62 @@ body::-webkit-scrollbar-thumb:hover {
     padding: .7rem;
   }
 
+  
+.delete-category-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    padding: 3rem 1rem;
+    background-color: #2b2941;
+    border-radius: 8px;
+    position: relative;
+    z-index: 14;
+}
+
+.delete-category-container .delete-container{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid black;
+    padding-bottom: .1rem;
+    font-size: larger;
+}
+
+.delete-category-container .delete-container p{
+    font-size: 2rem;
+}
+
+.delete-category-container span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+.delete-container form{
+    padding: 0;
+    display: flex;
+    align-items: end;
+    width: 40%;
+}
+
+.delete-container form .delete-category-btn{
+    padding: .3rem 0;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: smaller;
+    cursor: pointer;
+}
+
+
+ 
 @media(max-width: 900px){
     .my-product{
         width: 25%;

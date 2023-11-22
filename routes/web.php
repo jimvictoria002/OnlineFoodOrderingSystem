@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
     Route::post('/admin/storecategory', [AdminController::class, 'storecategory'])->name('admin.storecategory');
+    Route::delete('/admin/{category_id}/delete', [AdminController::class, 'deletecategory'])->name('admin.deletecategory');
     Route::get('/admin/{category}', [AdminController::class, 'category'])->name('admin.category');
     
     Route::post('/admin/{category}/storeproduct', [AdminController::class, 'storeproduct'])->name('admin.storeproduct');
