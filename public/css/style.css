@@ -666,7 +666,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: start;
     flex-direction: column;
     width: 40%;
-    padding: 3rem 1rem;
+    padding: 3rem 3rem;
     background-color: #2b2941;
     border-radius: 8px;
     position: relative;

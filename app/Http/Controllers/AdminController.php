@@ -66,9 +66,11 @@ class AdminController extends Controller
 
         $request->file('product_img')->storeAs('public/products', $filenameToStore);
 
-        $product = Product::create($validated);
+        Product::create($validated);
 
-        return redirect("/admin/$category")->with('success','Product added');
+        return redirect()
+        ->route('admin.category', ['category' => $category])
+        ->with('success', 'Product added');
     }
 
     public function updateproduct(Request $request, $category , $product_id)

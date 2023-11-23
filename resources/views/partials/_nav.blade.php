@@ -46,11 +46,15 @@
                 </div>
             @endforeach
         </div>
+        
         <a class="add-product" id="category-toggle-open">add <i class="fa-solid fa-plus"></i></a>
         <a class="add-product" id="deleteCategory-toggle-open" style="margin-top: 1rem; background-color:cyan; color: black;"
         >Edit <i class="fa-solid fa-minus"></i></a>
+        
     </div>
 </div>
+
+
 
 <div class="add-category" id="addCategory">
     <form action="/admin/storecategory" method="post" class="add-category-form">
@@ -65,7 +69,7 @@
 
 <div class="add-category" id="deleteCategory">
     <div class="delete-category-container">
-        <div class="tags" style="margin-bottom: 1rem">
+        <div class="" style="margin-bottom: 2rem; font-size: 2rem;">
             <p>Update category</p>
         </div>
         <span>
@@ -91,6 +95,5 @@
         @endforeach
     </div>
 </div>
-
 
 

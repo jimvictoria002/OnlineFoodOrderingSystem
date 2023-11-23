@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,12 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/check', [UserController::class, 'check'])->name('check');
 });
 
-
-
 Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [CustomerController::class,'home'])->name('customer.home');
+    Route::post('/logout', [CustomerController::class,'logout'])->name('customer.logout');
+});
+
+Route::middleware(['auth', 'adminonly'])->group(function () {
     
     Route::get('/admin/home', 
     [AdminController::class, 'home'])

@@ -84,37 +84,3 @@ profileToggle.addEventListener('click', ()=>{
   }
 });
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  let categoryOpen = document.getElementById('category-toggle-open');
-  let categoryClose = document.getElementById('category-toggle-close');
-  let categoryContainer = document.getElementById('addCategory');
-
-
-  categoryOpen.addEventListener('click', ()=>{
-    categoryContainer.style.bottom = 0;
-  });
-
-  categoryClose.addEventListener('click', ()=>{
-    categoryContainer.style.bottom = '100%';
-  });
-
-  let deleteCategoryOpen = document.getElementById('deleteCategory-toggle-open');
-  let deleteCategoryClose = document.getElementById('delete-category-toggle-close');
-  let deleteCategoryContainer = document.getElementById('deleteCategory');
-
-
-  deleteCategoryOpen.addEventListener('click', ()=>{
-    deleteCategoryContainer.style.bottom = 0;
-        
-        
-    var myInput = document.querySelector('.category-upt-input');
-    myInput.focus();
-    myInput.setSelectionRange(myInput.value.length, myInput.value.length);
-  });
-
-  deleteCategoryClose.addEventListener('click', ()=>{
-    deleteCategoryContainer.style.bottom = '100%';
-  });
-});
-
