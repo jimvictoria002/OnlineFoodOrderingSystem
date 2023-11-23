@@ -47,13 +47,13 @@
             @endforeach
         </div>
         <a class="add-product" id="category-toggle-open">add <i class="fa-solid fa-plus"></i></a>
-        <a class="add-product" id="deleteCategory-toggle-open" style="margin-top: 1rem; background-color:red; color: white;"
-        >del <i class="fa-solid fa-minus"></i></a>
+        <a class="add-product" id="deleteCategory-toggle-open" style="margin-top: 1rem; background-color:cyan; color: black;"
+        >Edit <i class="fa-solid fa-minus"></i></a>
     </div>
 </div>
 
 <div class="add-category" id="addCategory">
-    <form action="/admin/storecategory" method="post">
+    <form action="/admin/storecategory" method="post" class="add-category-form">
         @csrf
         <span><i class="fa-solid fa-x" id="category-toggle-close"></i></span>
         <label for="">Create food category</label>
@@ -65,13 +65,24 @@
 
 <div class="add-category" id="deleteCategory">
     <div class="delete-category-container">
+        <div class="tags" style="margin-bottom: 1rem">
+            <p>Update category</p>
+        </div>
         <span>
             <i class="fa-solid fa-x" id="delete-category-toggle-close"></i>
         </span>
         @foreach($categories as $category)
             <div class="delete-container">
-                <p>{{$category->category_name}}</p>
-                <form action="/admin/{{$category->id}}/delete" method="post">
+                <form action="/admin/{{$category->id}}/update" method="post" class="upt-category-form">
+                    @method('put')
+                    @csrf
+                    <input type="text" name="category"
+                    placeholder="Enter food category"
+                    class="category-upt-input"
+                    value="{{$category->category_name}}">
+                    <input type="submit" value="Update" class="category-upt-btn">
+                </form>
+                <form action="/admin/{{$category->id}}/delete" method="post" class="delete-form">
                     @method('delete')
                     @csrf
                     <input type="submit" value="Delete" class="delete-category-btn">

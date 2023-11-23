@@ -93,6 +93,11 @@ let deleteCategoryContainer = document.getElementById('deleteCategory');
 
 deleteCategoryOpen.addEventListener('click', ()=>{
   deleteCategoryContainer.style.bottom = 0;
+      
+      
+  var myInput = document.querySelector('.category-upt-input');
+  myInput.focus();
+  myInput.setSelectionRange(myInput.value.length, myInput.value.length);
 });
 
 deleteCategoryClose.addEventListener('click', ()=>{

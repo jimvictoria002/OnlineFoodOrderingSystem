@@ -579,7 +579,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
-.add-category form{
+.add-category .add-category-form{
     display: flex;
     justify-content: center;
     align-items: start;
@@ -601,13 +601,13 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 
-.add-category form input{
+.add-category .add-category-form input{
     width: 90%;
     padding: .4rem;
     font-size: larger;
 }
 
-.add-category form label{
+.add-category .add-category-form label{
     width: 100%;
     margin-bottom: .4rem;
     font-size: larger;
@@ -663,24 +663,27 @@ body::-webkit-scrollbar-thumb:hover {
 .delete-category-container{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     padding: 3rem 1rem;
     background-color: #2b2941;
     border-radius: 8px;
     position: relative;
     z-index: 14;
+    padding-top: 2rem;
 }
 
 .delete-category-container .delete-container{
     display: flex;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin-bottom: 1rem;
     border-bottom: 2px solid black;
     padding-bottom: .1rem;
     font-size: larger;
+    gap: 1rem;
 }
 
 .delete-category-container span{
@@ -691,21 +694,47 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 
-.delete-container form{
+.delete-container .delete-form{
     padding: 0;
     display: flex;
-    align-items: end;
-    width: 40%;
     margin-bottom: .3rem;
+    flex: 0;
+}
+
+.upt-category-form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 3;
+    margin-bottom: .3rem;
+}
+
+.upt-category-form .category-upt-input{
+    width: 50%;
+    font-size: larger;
+    text-align: center;
+    
+}
+
+.category-upt-btn{
+    padding: .3rem 0;
+    border-radius: 6px;
+    background-color: rgb(54, 209, 54);
+    color: black;
+    border: none;
+    font-size: smaller;
+    cursor: pointer;
+    width: 100px;
 }
 
 .delete-container form .delete-category-btn{
     padding: .3rem 0;
     border-radius: 6px;
     background-color: red;
-    color: white;
+    color: black;
     border: none;
-    width: 100%;
+    width: 100px;
     font-size: smaller;
     cursor: pointer;
 }
@@ -750,8 +779,8 @@ body::-webkit-scrollbar-thumb:hover {
         display: none;
     }
 
-    .add-category form{
-        width: 70%;
+    .add-category .add-category-form{
+        width: 60%;
     }
     :root{
         font-size: 14px;
@@ -761,6 +790,6 @@ body::-webkit-scrollbar-thumb:hover {
         width: 35%;
     }
     .delete-category-container{
-        width: 70%;
+        width: 80%;
     }
 }

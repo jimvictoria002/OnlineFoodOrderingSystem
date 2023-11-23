@@ -143,7 +143,7 @@ class AdminController extends Controller
         Category::create([
             "category_name" => $request->category
         ]);
-        return back()->with("success","Category added");
+        return redirect("/admin/$request->category");
     }
 
     public function deletecategory(Request $request, $category_id)
@@ -151,6 +151,18 @@ class AdminController extends Controller
         $category = Category::find($category_id);
         $category->destroy($category_id);
         Product::where("category", $category->category_name)->delete();
+        return redirect("/admin/home");
+    }
+
+    public function updatecategory(Request $request, $category_id)
+    {
+        $category = Category::find($category_id);
+        Product::where("category", $category->category_name)->update([
+            "category"=> $request->category
+        ]);
+        $category->update([
+            "category_name"=> $request->category
+        ]);
         return redirect("/admin/home");
     }
 }
