@@ -23,18 +23,55 @@ Route::middleware(['guest'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/home', [AdminController::class, 'home'])->name('admin.home');
-    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
-    Route::post('/admin/storecategory', [AdminController::class, 'storecategory'])->name('admin.storecategory');
-    Route::put('/admin/{category_id}/update', [AdminController::class, 'updatecategory'])->name('admin.updatecategory');
-    Route::delete('/admin/{category_id}/delete', [AdminController::class, 'deletecategory'])->name('admin.deletecategory');
-    Route::get('/admin/{category}', [AdminController::class, 'category'])->name('admin.category');
     
-    Route::post('/admin/{category}/storeproduct', [AdminController::class, 'storeproduct'])->name('admin.storeproduct');
-    Route::put('/admin/{category}/{product_id}', [AdminController::class, 'updateproduct'])->name('admin.updateproduct');
-    Route::put('/admin/markbestseller/{category}/{product_id}', [AdminController::class, 'markbestseller'])->name('admin.markbestseller');
-    Route::get('/admin/{category}/addproduct', [AdminController::class, 'addproduct'])->name('admin.addproduct');
-    Route::get('/admin/{category}/{product_id}', [AdminController::class, 'viewproduct'])->name('admin.viewproduct');
-    Route::delete('/admin/{category}/{product_id}', [AdminController::class, 'deleteproduct'])->name('admin.deleteproduct');
+    Route::get('/admin/home', 
+    [AdminController::class, 'home'])
+    ->name('admin.home');
+
+    Route::post('/admin/logout', 
+    [AdminController::class, 'logout'])
+    ->name('admin.logout');
+
+    //CATEGORY ROUTES
+    Route::post('/admin/storecategory', 
+    [AdminController::class, 'storecategory'])
+    ->name('admin.storecategory');
+
+    Route::put('/admin/{category_id}/update', 
+    [AdminController::class, 'updatecategory'])
+    ->name('admin.updatecategory');
+
+    Route::delete('/admin/{category_id}/delete', 
+    [AdminController::class, 'deletecategory'])
+    ->name('admin.deletecategory');
+
+    Route::get('/admin/{category}', 
+    [AdminController::class, 'category'])
+    ->name('admin.category');
+    
+
+    //PRODUCTS ROUTES
+    Route::post('/admin/{category}/storeproduct', 
+    [AdminController::class, 'storeproduct'])
+    ->name('admin.storeproduct');
+
+    Route::put('/admin/{category}/{product_id}', 
+    [AdminController::class, 'updateproduct'])
+    ->name('admin.updateproduct');
+
+    Route::put('/admin/markbestseller/{category}/{product_id}', 
+    [AdminController::class, 'markbestseller'])
+    ->name('admin.markbestseller');
+
+    Route::get('/admin/{category}/addproduct', 
+    [AdminController::class, 'addproduct'])
+    ->name('admin.addproduct');
+
+    Route::get('/admin/{category}/{product_id}', 
+    [AdminController::class, 'viewproduct'])
+    ->name('admin.viewproduct');
+
+    Route::delete('/admin/{category}/{product_id}', 
+    [AdminController::class, 'deleteproduct'])
+    ->name('admin.deleteproduct');
 });

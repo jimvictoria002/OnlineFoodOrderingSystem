@@ -35,11 +35,17 @@ class AdminController extends Controller
 
     public function addproduct($category)
     {
+        $categoryExists = Category::where('category_name', $category)->exists();
+
+        if (!$categoryExists) {
+            abort(404, 'Category not found');
+        }
         return view("admin.addproduct", ["category"=> $category]);
     }
 
     public function storeproduct(Request $request, $category)
     {
+        
         $validated = $request->validate([
             'product_name' => 'required|string|max:255',
             'product_price' => 'required|numeric',
@@ -111,6 +117,11 @@ class AdminController extends Controller
 
     public function viewproduct($category, $product_id)
     {   
+        $categoryExists = Category::where('category_name', $category)->exists();
+        $productExists = Product::where('id', $product_id)->exists();
+        if (!$categoryExists || !$productExists) {
+            abort(404, 'Category not found');
+        }
         $product = Product::find($product_id);
         return view("admin.viewproduct", ['product' => $product]);
     }
@@ -123,6 +134,11 @@ class AdminController extends Controller
 
     public function category($category)
     {
+        $categoryExists = Category::where('category_name', $category)->exists();
+
+        if (!$categoryExists) {
+            abort(404, 'Category not found');
+        }
         $productsNot = Product::where('category', $category)
         ->where('bestseller', 'no')->orderBy('created_at', 'desc')->get();
 
