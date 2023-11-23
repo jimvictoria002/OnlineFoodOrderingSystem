@@ -1,5 +1,7 @@
 @php
-    $categories = DB::select('SELECT * FROM categories');
+    use App\Models\Category;
+    $categories = Category::orderBy('created_at', 'desc')
+        ->get();
     $active_category = (isset($active_category)) ? $active_category : '';
 @endphp
 <nav>

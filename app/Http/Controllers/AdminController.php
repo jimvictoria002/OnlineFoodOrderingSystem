@@ -18,7 +18,8 @@ class AdminController extends Controller
 
         $productsYes = Product::where('bestseller', 'yes')->get();
 
-        $categories = Category::all();
+        $categories = Category::orderBy('created_at', 'desc')
+        ->get();
         
         return view("admin.home",
          ["productsNot"=> $productsNot,
@@ -123,7 +124,7 @@ class AdminController extends Controller
     public function category($category)
     {
         $productsNot = Product::where('category', $category)
-        ->where('bestseller', 'no')->get();
+        ->where('bestseller', 'no')->orderBy('created_at', 'desc')->get();
 
         $productsYes = Product::where('category', $category)
         ->where('bestseller', 'yes')->get();

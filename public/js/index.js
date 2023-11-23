@@ -34,9 +34,10 @@ for (let i = 0; i < productCon.length; i++) {
     },
     breakpoints: {
       0: {
+        spaceBetween: 20,
         slidesPerView: 2,
       },
-      500: {
+      600: {
         slidesPerView: 3,
       },
       950: {
@@ -51,11 +52,12 @@ for (let i = 0; i < productCon.length; i++) {
     swiperOptions.loop = true
     swiperOptions.breakpoints = {
       0: {
+        spaceBetween: 20,
         slidesPerView: 2,
       },
 
       600: {
-        slidesPerView: 3,
+        slidesPerView: 2,
       },
       950: {
         slidesPerView: 3,

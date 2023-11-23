@@ -25,7 +25,7 @@
             <label for="product_price" >Product price</label>
             <input type="text" name="product_price" placeholder="Enter product price"  value="{{$product->product_price}}">
         </div>
-        <label for="">Product image</label>
+        <label for="">Update product image</label>
         <input type="file" name="product_img">
         <input type="submit" value="Update" class="update-btn btn" style="width:100%;">
     </form>

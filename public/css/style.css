@@ -175,7 +175,7 @@ nav .profile .user-avatar{
 .menu-wrapper .menus{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: start;
     align-items: start;
     margin: 1rem 0;
     overflow-y: auto;
@@ -453,9 +453,6 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
     font-size: 1.2rem;
   }
-  .update-btn:hover{
-    transform: scale(1.05);
-  }
   .bn49:hover{
     background-color: rgb(237, 143, 36);
   }
@@ -617,7 +614,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .add-category .add-product{
-    width: 150px;
+    width: 200px;
+    padding: .5rem 0;
     outline: none;
     border: none;
     margin-top: .7rem;
@@ -656,13 +654,9 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
   }
 
-  .delete-btn:hover{
-    background-color: rgb(218, 35, 29);
-    transform: scale(1.05);
-  }
 
   .btn{
-    padding: .7rem;
+    padding: .4rem;
   }
 
   
@@ -689,10 +683,6 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: larger;
 }
 
-.delete-category-container .delete-container p{
-    font-size: 2rem;
-}
-
 .delete-category-container span{
     position: absolute;
     top: 0;
@@ -706,6 +696,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: end;
     width: 40%;
+    margin-bottom: .3rem;
 }
 
 .delete-container form .delete-category-btn{
@@ -768,5 +759,8 @@ body::-webkit-scrollbar-thumb:hover {
 
     .my-product{
         width: 35%;
+    }
+    .delete-category-container{
+        width: 70%;
     }
 }
