@@ -21,11 +21,6 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/check', [UserController::class, 'check'])->name('check');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [CustomerController::class,'home'])->name('customer.home');
-    Route::post('/logout', [CustomerController::class,'logout'])->name('customer.logout');
-});
-
 Route::middleware(['auth', 'adminonly'])->group(function () {
     
     Route::get('/admin/home', 
@@ -35,6 +30,10 @@ Route::middleware(['auth', 'adminonly'])->group(function () {
     Route::post('/admin/logout', 
     [AdminController::class, 'logout'])
     ->name('admin.logout');
+
+    Route::get('/admin/orders/{status}', 
+    [AdminController::class, 'orders'])
+    ->name('admin.orders');
 
     //CATEGORY ROUTES
     Route::post('/admin/storecategory', 
@@ -79,3 +78,14 @@ Route::middleware(['auth', 'adminonly'])->group(function () {
     [AdminController::class, 'deleteproduct'])
     ->name('admin.deleteproduct');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [CustomerController::class,'home'])->name('customer.home');
+    Route::post('/logout', [CustomerController::class,'logout'])->name('customer.logout');
+    Route::put('/myorders/{order_id}', [CustomerController::class,'cancelorder'])->name('customer.cancelorder');
+    Route::get('/myorders/{view}', [CustomerController::class,'myorders'])->name('customer.myorders');
+    Route::get('/{category}', [CustomerController::class,'category'])->name('customer.category');
+    Route::get('/{category}/{product_id}',[CustomerController::class, 'viewproduct'])->name('customer.viewproduct');
+    Route::post('/{category}/{product_id}/{user_id}',[CustomerController::class, 'buyproduct'])->name('customer.buyproduct');
+});
+

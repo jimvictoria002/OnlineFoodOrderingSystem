@@ -118,3 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function updateLocation(selectElement) {
+  var selectedValue = selectElement.value;
+  if (selectedValue) {
+      window.location.href = selectedValue;
+  }
+}
+
+

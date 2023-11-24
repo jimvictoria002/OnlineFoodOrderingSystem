@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Auth;
 use Illuminate\Http\Request;
@@ -16,10 +17,10 @@ class AdminController extends Controller
     {
         $productsNot = Product::where('bestseller', 'no')->get();
 
-        $productsYes = Product::where('bestseller', 'yes')->get();
+        $productsYes = Product::where('bestseller', 'yes')
+        ->orderBy('updated_at','desc')->get();
 
-        $categories = Category::orderBy('created_at', 'desc')
-        ->get();
+        $categories = Category::orderBy('created_at', 'desc')->get();
         
         return view("admin.home",
          ["productsNot"=> $productsNot,
@@ -31,6 +32,17 @@ class AdminController extends Controller
     {
         Auth::logout();
         return redirect("/");
+    }
+
+    public function orders($status)
+    {
+        $orders = Order::where("status", $status)
+        ->join("products","orders.product_id","=","products.id")
+        ->join("users","orders.customer_id","=","users.id")
+        ->orderBy("orders.created_at","asc")
+        ->get();
+
+        return view("admin.orders", ["orders"=> $orders]);
     }
 
     public function addproduct($category)
@@ -145,7 +157,7 @@ class AdminController extends Controller
         ->where('bestseller', 'no')->orderBy('created_at', 'desc')->get();
 
         $productsYes = Product::where('category', $category)
-        ->where('bestseller', 'yes')->get();
+        ->where('bestseller', 'yes')->orderBy('updated_at', 'desc')->get();
         
         return view("admin.category",
          ["productsNot"=> $productsNot,

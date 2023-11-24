@@ -9,7 +9,7 @@
         <i class="fa-solid fa-bars"></i>
     </h1>
     <div class="logo">
-        <a href="/admin/home">
+        <a href="/home">
             <h1>Food <span>Online</span></h1>
         </a>
     </div>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="profile-dropdown" id="profileDropdown">
-        <a href="#">Orders</a>
+        <a href="/myorders/ongoing">My orders</a>
         <a href="#">Sales</a>
         <form action="/logout" method="post">
             @csrf
@@ -38,11 +38,11 @@
         </div>
         <div class="menus">
             <div class="menu {{ ($active_category == '') ? 'active' : ''}}">
-                <a href="/admin/home">Home</a>
+                <a href="/home">Home</a>
             </div>
             @foreach($categories as $category)
                 <div class="menu {{ ($category->category_name == $active_category) ? 'active' : ''}}">
-                    <a href="/admin/{{$category->category_name}}">{{$category->category_name}}</a>
+                    <a href="/{{$category->category_name}}">{{$category->category_name}}</a>
                 </div>
             @endforeach
         </div>

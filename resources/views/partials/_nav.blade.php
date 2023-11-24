@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="profile-dropdown" id="profileDropdown">
-        <a href="#">Orders</a>
+        <a href="/admin/orders/pending">Orders</a>
         <a href="#">Sales</a>
         <form action="/admin/logout" method="post">
             @csrf

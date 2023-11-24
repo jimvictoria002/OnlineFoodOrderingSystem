@@ -468,7 +468,6 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     align-items: center;
     background-color: #151421;
-    padding: 1.5rem 1rem;
     border-radius: 6px;
   }
   .product-card{
@@ -585,7 +584,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: start;
     flex-direction: column;
     width: 30%;
-    padding: 1.5rem 1rem;
+    padding: 2rem 3rem;
     background-color: #2b2941;
     border-radius: 8px;
     position: relative;
@@ -601,7 +600,7 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 
-.add-category .add-category-form input{
+.add-category .add-category-form input[type="text"]{
     width: 90%;
     padding: .4rem;
     font-size: larger;
@@ -730,7 +729,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .delete-container form .delete-category-btn{
     padding: .3rem 0;
-    border-radius: 6px;
+    border-radius: 6px; 
     background-color: red;
     color: black;
     border: none;
@@ -739,8 +738,91 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 
+.orders-container{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
 
- 
+.orders-container .order-card{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2rem 0;
+    position: relative;
+    border: 1px solid rgba(0,0,0,.6);
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #2e272a;
+} 
+.status-container{
+    position: absolute;
+    bottom: 100%;
+    right: 1%;
+    padding: .4rem .2rem;
+    background-color: #4a4942;
+    border-radius: 10px 10px 0  0;
+    font-size: 15px;
+}
+
+.order-attributes{  
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+
+.order-attributes .order-name{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.order-card .order-img{
+    width: 100%;
+}
+
+.order-card .order-img img{
+    width: 100%;
+}
+
+.tags option{
+    text-align: center;
+}
+
+.pending{
+    background-color: #b0abab;
+    color: black;
+}
+
+.processing{
+    background-color: #8FB88B;
+    color: black;
+}
+
+.OTW{
+    background-color: #FFA500;
+    color: black;
+}
+
+.completed{
+    background-color: #00FF00;
+    color: black;
+}
+
+#completed{
+    opacity: .7;
+}
+
+#cancelled{
+    opacity: .7;
+}
+
+
 @media(max-width: 900px){
     .my-product{
         width: 25%;
@@ -766,6 +848,9 @@ body::-webkit-scrollbar-thumb:hover {
     }
     .tags p::after{
         width: 80%;
+    }
+    .orders-container .order-card{
+        flex-direction: column;
     }
 }
 
