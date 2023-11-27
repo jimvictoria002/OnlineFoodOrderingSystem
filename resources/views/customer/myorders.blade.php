@@ -8,8 +8,8 @@
         <select name="" onchange="updateLocation(this)" style="padding: 0;">
             <option value="" selected>--</option>
             <option value="/myorders/ongoing">Ongoing</option>
-            <option value="/myorders/cancelled">Cancelled</option>
             <option value="/myorders/completed">Completed</option>
+            <option value="/myorders/cancelled">Cancelled</option>
         </select>
     </div>
     <div class="orders-container">

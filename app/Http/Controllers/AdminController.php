@@ -8,6 +8,7 @@ use App\Models\Product;
 use Auth;
 use Illuminate\Http\Request;
 use app\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -36,13 +37,21 @@ class AdminController extends Controller
 
     public function orders($status)
     {
-        $orders = Order::where("status", $status)
-        ->join("products","orders.product_id","=","products.id")
-        ->join("users","orders.customer_id","=","users.id")
-        ->orderBy("orders.created_at","asc")
+        $orders = Order::with('product', 'customer')
+        ->select("*", DB::raw("DATE(created_at) as order_date"))
+        ->where('status', $status)
+        ->orderBy('created_at', 'desc')
+        ->orderBy('updated_at','desc')
         ->get();
 
-        return view("admin.orders", ["orders"=> $orders]);
+        return view("admin.orders", ["orders"=> $orders, 'status' => $status]);
+    }
+
+    public function updatestatus($status, $order_id){
+        $order = Order::find($order_id);
+        $order->status = $status;
+        $order->save();
+        return redirect()->route('admin.orders', ['status' => $status]);
     }
 
     public function addproduct($category)
@@ -61,7 +70,7 @@ class AdminController extends Controller
         $validated = $request->validate([
             'product_name' => 'required|string|max:255',
             'product_price' => 'required|numeric',
-            'product_img' => 'required|mimes:jpeg,jpg,png,gif,tiff,webp|max:10000',
+            'product_img' => 'required|mimes:jpeg,jpg,png,tiff,webp|max:10000',
         ]);
 
         $validated['category'] = $category;

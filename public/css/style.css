@@ -790,8 +790,10 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
 }
 
+
 .tags option{
     text-align: center;
+    padding: 1rem;
 }
 
 .pending{
@@ -820,6 +822,19 @@ body::-webkit-scrollbar-thumb:hover {
 
 #cancelled{
     opacity: .7;
+}
+
+.orders-container table{
+    width: 100%;
+}
+
+.orders-container table th{
+    font-size: 1.4rem;
+}
+
+.orders-container table td{
+    text-align: center;
+    padding: 1rem 0;
 }
 
 

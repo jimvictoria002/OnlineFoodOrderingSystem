@@ -126,3 +126,13 @@ function updateLocation(selectElement) {
 }
 
 
+function updateStatus(path) {
+  
+  console.log(path.value);
+
+  document.getElementById('updateStatus').action = path.value;
+  document.getElementById('updateStatus').submit();
+  
+}
+
+

@@ -20,11 +20,11 @@
                 <div class="alert alert-danger">{{ $errors->first()  }}</div>
             @endif
             <label for="product_name">Product name</label>
-            <input type="text" name="product_name" placeholder="Enter product name">
+            <input type="text" name="product_name" placeholder="Enter product name" value="{{old('product_name')}}">
         </div>
         <div class="price-name-container">
             <label for="product_price" >Product price</label>
-            <input type="text" name="product_price" placeholder="Enter product price" style="width: 70%;">
+            <input type="text" name="product_price" placeholder="Enter product price" style="width: 70%;" value="{{old('product_price')}}">
         </div>
         <label for="">Product image</label>
         <input type="file" name="product_img">

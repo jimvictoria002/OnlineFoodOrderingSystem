@@ -35,6 +35,10 @@ Route::middleware(['auth', 'adminonly'])->group(function () {
     [AdminController::class, 'orders'])
     ->name('admin.orders');
 
+    Route::put('/admin/orders/{status}/{order_id}', 
+    [AdminController::class, 'updatestatus'])
+    ->name('admin.updateorders');
+
     //CATEGORY ROUTES
     Route::post('/admin/storecategory', 
     [AdminController::class, 'storecategory'])
